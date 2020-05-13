@@ -15,3 +15,7 @@ npm start
 ```
 npm run test
 ```
+### Linter
+```
+npm run lint
+```
