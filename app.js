@@ -13,4 +13,6 @@ app.get('/', (req, res) => {
   res.status(200).send('Server can serve data');
 });
 
+require('./src/routes/user.routes.js')(app);
+
 module.exports = app;
