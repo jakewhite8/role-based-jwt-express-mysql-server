@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
   res.status(200).send('Server can serve data');
 });
 
-require('./src/routes/user.routes.js')(app);
+// require('./src/routes/user.routes.js')(app);
+require('./src/routes/auth.routes.js')(app);
 
 module.exports = app;

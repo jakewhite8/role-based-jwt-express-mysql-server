@@ -7,7 +7,7 @@ const User = function (user) {
 };
 
 User.create = (newUser, result) => {
-  // execute() my be the better then using query()
+  // execute() may be the better then using query()
   mysql.query('INSERT INTO users SET ?', newUser, (err, res) => {
     if (err) {
       console.error(err);
@@ -17,6 +17,24 @@ User.create = (newUser, result) => {
 
     console.log(`Create user: ${JSON.stringify({ id: res.insertId, ...newUser })}`);
     result(null, { id: res.insertId, ...newUser });
+  });
+};
+
+User.findOne = (email, result) => {
+  mysql.query('SELECT * FROM users WHERE email = ?', email, (err, res) => {
+    if (err) {
+      console.log('Error: ', err);
+      result(err, null);
+      return;
+    }
+
+    if (res.length) {
+      console.log('found user: ', res[0]);
+      result(null, res[0]);
+      return;
+    }
+
+    result({ kind: 'not found' }, null);
   });
 };
 
