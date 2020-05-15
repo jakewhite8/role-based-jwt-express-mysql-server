@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs');
+const db = require('../models');
 
-const User = require('../models/user.model.js');
+const User = db.user;
 
 
 exports.create = (req, res) => {

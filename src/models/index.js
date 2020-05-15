@@ -10,8 +10,10 @@ const connection = mysql.createPool({
 });
 
 const user = require('./user.model.js')(connection);
+const role = require('./role.model.js')(connection);
 
 module.exports = {
   connection,
   user,
+  role,
 };
