@@ -13,6 +13,6 @@ module.exports = (connection) => {
       console.log(`Created new role: ${JSON.stringify({ id: res.insertId, ...role })}`);
     });
   };
-  
+
   return Role;
 };

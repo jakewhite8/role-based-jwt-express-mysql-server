@@ -7,15 +7,24 @@ module.exports = (connection) => {
 
   User.create = (newUser, result) => {
     // execute() may be the better then using query()
-    connection.query('INSERT INTO users SET ?', newUser, (err, res) => {
-      if (err) {
-        console.error(err);
-        result(err, null);
+    connection.query('INSERT INTO users SET ?', newUser, (userErr, userRes) => {
+      if (userErr) {
+        console.error(userErr);
+        result(userErr, null);
         return;
       }
+      console.log(`Create user: ${JSON.stringify({ id: userRes.insertId, ...newUser })}`);
 
-      console.log(`Create user: ${JSON.stringify({ id: res.insertId, ...newUser })}`);
-      result(null, { id: res.insertId, ...newUser });
+      // Add user to user_roles table
+      connection.query('INSERT INTO user_roles(userId, roleId) VALUES(?, ?)', [userRes.insertId, 1], (err, res) => {
+        if (err) {
+          console.error(err);
+          result(err, null);
+          return;
+        }
+        console.log(`User added to user_roles table: ${JSON.stringify(res)}`);
+        result(null, { id: userRes.insertId, ...newUser });
+      });
     });
   };
 
