@@ -2,3 +2,4 @@ node_modules
 package-lock.json
 .DS_Store
 /src/config/db.config.js
+/src/config/auth.config.js

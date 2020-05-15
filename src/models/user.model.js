@@ -46,5 +46,23 @@ module.exports = (connection) => {
     });
   };
 
+  User.findRoles = (userId, result) => {
+    connection.query('SELECT * FROM user_roles WHERE userId = ?', userId, (err, res) => {
+      if (err) {
+        console.log('Error: ', err);
+        result(err, null);
+        return;
+      }
+
+      if (res.length) {
+        console.log('User\'s roles found');
+        result(null, res);
+        return;
+      }
+
+      result({ kind: 'roles not found' }, null);
+    });
+  };
+
   return User;
 };
