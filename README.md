@@ -31,6 +31,15 @@ module.exports = {
 npm start
 ```
 ### Test
+* In order to run tests, a config file has to be made that stores a user's email and password 
+/src/config/test.config.js:
+```
+module.exports = {
+  email: <user email>,
+  password: <user password>,
+};
+
+```
 ```
 npm run test
 ```
