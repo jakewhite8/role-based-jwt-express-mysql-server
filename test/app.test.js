@@ -50,7 +50,6 @@ describe('Protected routes', () => {
           .catch((err) => {
             console.log(err.message);
           });
-
       })
       .catch((err) => {
         console.log(err.message);
@@ -76,7 +75,6 @@ describe('Protected routes', () => {
           .catch((err) => {
             console.log(err.message);
           });
-
       })
       .catch((err) => {
         console.log(err.message);
@@ -102,7 +100,6 @@ describe('Protected routes', () => {
           .catch((err) => {
             console.log(err.message);
           });
-          
       })
       .catch((err) => {
         console.log(err.message);

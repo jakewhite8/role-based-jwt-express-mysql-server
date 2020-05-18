@@ -1,4 +1,4 @@
-# major-manager-server
+# Role Based Server using JSON Web Tokens, Express, and MySQL
  
 
 
