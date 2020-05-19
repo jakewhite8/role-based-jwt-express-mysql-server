@@ -2,8 +2,14 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const app = express();
+
+let corsOptions = {
+  origin: 'http://localhost:8080'
+};
+app.use(cors(corsOptions));
 
 // Enables incoming requests to be decoded and parsed as json objects
 app.use(bodyParser.json());
