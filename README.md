@@ -47,3 +47,4 @@ npm run test
 ```
 npm run lint
 ```
+### Corresponding [Vue UI](https://github.com/jakewhite8/vue-vuex-vueRouter-jwt-ui)
